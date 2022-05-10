@@ -1,0 +1,45 @@
+#Container {
+    width: 800px;
+    height: 900px;
+    background-color: #edf3f5;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 1%;
+}    
+* {
+    font-family: sans-serif;
+}
+.titulo {
+    font-size: 50px;
+    font-weight: bolder;
+
+}
+p {
+    font-size: 20px;
+}
+a {
+    font-size: 20px;
+}
+div {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: space-between;
+    align-items: center;
+    padding: 1%;
+    margin: 1%;
+    width: 90%;
+    height: 26%;
+}
+.row1 {
+    background-color: #58c6f3;
+}
+.row2 {
+    background-color: #d0a2bf;
+}
+.row3 {
+    background-color: white;
+}
+img.octocat {
+    height: 200px;
+}

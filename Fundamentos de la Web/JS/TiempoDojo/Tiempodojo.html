@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Tiempodojo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="top-page">
+        <div id="navigation-bar">
+            <h1>Dojo Weather</h1>
+            <div class="nav-bar-right-half">
+                <h3 onclick='alert("Loading weather report...")'>Burbank</h3>
+                <h3 onclick='alert("Loading weather report...")'>Chicago</h3>
+                <h3 onclick='alert("Loading weather report...")'>Dallas</h3>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="main-header">
+        <h2>San Jose</h2>
+        <div class="main-header-right-half">
+            <label>show temperature in   </label>
+                <select name="temperature" onchange="cambiarTemperaturas(this)">
+                    <option value="°C">°C</option>
+                    <option value="F">F</option>
+                </select>
+        </div>
+        
+    </div>
+
+
+    <div id="main-body">
+        <div class="column">
+            <h3>Today</h3>
+            <img src="some_rain.png" alt="rain">
+            <h6>some rain</h6>
+            <div class="column-temperatures">
+                <p class="p1" id="t0">24°</p>
+                <p class="p2" id="t1">18°</p>
+            </div>
+        </div>
+        <div class="column">
+            <h3>Today</h3>
+            <img src="some_sun.png" alt="sun">
+            <h6>some sun</h6>
+            <div class="column-temperatures">
+                <p class="p1" id="t2">27°</p>
+                <p class="p2" id="t3">19°</p>
+            </div>
+        </div>
+        <div class="column">
+            <h3>Today</h3>
+            <img src="some_clouds.png" alt="clouds">
+            <h6>some clouds</h6>
+            <div class="column-temperatures">
+                <p class="p1" id="t4">21°</p>
+                <p class="p2" id="t5">16°</p>
+            </div>
+        </div>
+        <div class="column">
+            <h3>Today</h3>
+            <img src="some_sun.png" alt="rain">
+            <h6>some sun</h6>
+            <div class="column-temperatures">
+                <p class="p1" id="t6">26°</p>
+                <p class="p2" id="t7">21°</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookie">
+        <!-- <div id="cookie-bar">
+            <img src="cookie.png" alt="cookie">
+            <div class="cookie-bar-body">
+                <h2>Stop! Cookie Time</h2>
+                <p>We use cookies (Sadly not the edible ones) to personalize content and ads, to provide social media features and to anaylse our traffic. <a href="#">Read more...</a></p>
+            </div>
+            <button onclick="disappearCookieBar('#cookie-bar')" id="cookie-button">I accept</button>
+        </div> -->
+    </div>
+    <script src="Tiempodojo.js"></script>
+</body>
+</html>

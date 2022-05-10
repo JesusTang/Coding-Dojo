@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Evento Onclick.css">
+</head>
+<body>
+    <div id="main-frame">
+        <div id="navigation-bar">
+            <h1>Dojonary</h1>
+            <input type="text" name="email" 
+        placeholder="Search" >
+            <button onclick="changeToLOGOUT(this)">Login</button>
+        </div>
+
+        <div id="main-body">
+
+            <div class="main-body-left-side">
+                <div class="box">
+                    <div class="box-side">
+                        <h1>ninja</h1>
+                        <h3>noun</h3>
+                        <h5>Plural: <span>ninjas</span></h5>
+                        <button class="btn" onclick="changeBtnNumberOfLikes()">13 likes</button>
+                    </div>
+                    <div class="box-content">
+                        <p>A practicioner skilled in the <a href="#">Japanese</a> art of <a href="#">ninjutsu</a></p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box-side">
+                        <h1>ninja</h1>
+                        <h3>noun</h3>
+                        <h5>Plural: <span>ninjas</span></h5>
+                        <button onclick="alert('conchetumare')">37 likes</button>
+                    </div>
+                    <div class="box-content">
+                        <p>A <a href="#">programmer</a> who breaks down problems with <a href="#">zen</a>-like focus</p>
+                    </div>
+                </div>
+            </div>
+            <div class="main-body-right-side">
+                <div class="box">
+                    <h3>Dojonary is defined by <span>YOU</span></h3>
+                    <button onclick="hide(this)">Add Definition</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="Evento Onclick.js"></script>
+</body>
+</html>
