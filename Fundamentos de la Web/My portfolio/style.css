@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+
+}
+#nav {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    background-color: lightseagreen;
+    align-items: center;
+    padding: 0 auto;
+}
+
+#nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%
+}
+
+#nav-bar > ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    width: 20%;
+}
