@@ -1,6 +1,252 @@
 * {
     margin: 0;
     padding: 0;
-
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+    text-decoration: none;
+    
 }
 
+#container {
+    display: flex;
+    flex-flow: column;
+}
+
+/* Here starts styling of the navigation bar */
+#top {
+    background-color: #563d7c;
+    height: 65px;
+    display: flex;
+}
+#nav {
+    display: flex;
+    width: 1100px;
+    margin: 0 auto;
+    color: #cabce1;
+    justify-content: space-between;
+}
+ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0 20px;
+}
+button {
+    cursor: pointer;
+    font-weight: bold;
+}
+.white {
+    color: white;
+}
+#nav > ul > li {
+    margin: 0 6px;
+    cursor: pointer;
+}
+#nav > ul > li > a {
+    color: #cabce1;
+}
+.versionbox {
+    color: #cabce1;
+    background-color: #563d7c;
+    border: #563d7c;
+    cursor: pointer;
+}
+#nav > ul > li > button {
+    background-color: #563d7c;
+    color: #e0c582;
+    border-color: #e0c582;
+    border-radius: 3px;
+    padding: 7px 15px;
+}
+
+
+/* Here starts styling of the main body (white) */
+#body1 {
+    display: flex;
+    flex-flow: column;
+    margin: 0 auto;
+    width: 1000px;
+    margin: 40px auto;
+}
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.leftside {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+    padding: 10px;
+}
+.leftside > h1 {
+    color: #7952b3;
+    font-size: 3em;
+    margin-left: 5px;
+}
+.leftside > p {
+    margin: 10px 0;
+    color: #7e8283;
+    font-size: 1.4em;
+}
+.leftside > ul {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+.leftside > ul > li > button {
+    margin: 10px 0;
+    padding: 14px 45px;
+    font-size: 1.4em;
+    border-radius: 5px;
+    letter-spacing: 1px;
+}
+.leftside > .tiny {
+    font-size: 1.1em;
+}
+#body1 > .row > img {
+    margin: 25px 0;
+}
+.purplebutton {
+    color: #7952b3;
+    background-color: white;
+    border-color: #7952b3;
+}
+.graybutton {
+    color: #7e8283;
+    background-color: white;
+    border-color: #7e8283;
+}
+/* styling of the ad box */
+#ad {
+    background-color: #f2f2f2;
+    width: 290px;
+    font-size: 0.8em;
+    margin-left: 20px;
+    padding: 15px;
+    display: flex;
+    flex-flow: row;
+}
+#ad > a {
+    display: flex;
+}
+#ad > a > ul {
+    display: flex;
+    flex-flow: column;
+    margin: 0 12px;
+    align-items: flex-start;
+}
+.gray {
+    color: #7e8283;
+}
+#ad > .delete {
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+}
+/* End of the main body */
+
+
+
+
+/* Here starts styling of the 1st bottom row (gray) */
+#body2 {
+    width: 994px;
+    display: flex;
+    flex-flow: row;
+    margin: 0 auto 2px auto;
+
+}
+.col {
+    padding: 20px;
+    margin: 50px 2px 0 0;
+    background-color:#f8f9fa;
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    align-items: baseline;
+}
+.col > ul {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+}
+.col > ul > li {
+    margin: 5px 0; 
+}
+.theme {
+    width: 250px;
+}
+hr {
+    width: 100px;
+    margin: 0 20px;
+}
+.col > button {
+    color: #3a99fe;
+    border-color: #3a99fe;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 40px 0 20px 20px;
+    background-color: #f8f9fa;
+    font-weight: normal;
+}
+/* End of the 1st bottom row */
+
+
+
+/* Colorizing of the displayed codelines*/
+.codeline {
+    letter-spacing: 0.3px;
+}
+.blue {
+    color: #4273a9;
+    font-family: monospace
+}
+.black {
+    color: #4f5259;
+    font-family: monospace
+}
+.turquoise {
+    color: rgb(31, 121, 112);
+    font-family: monospace
+}
+.lightblue {
+    color: #62a9d4;
+    font-family: monospace
+}
+.red {
+    color: red;
+    font-family: monospace
+}
+/* End of the colorizing section */
+
+
+
+
+/* Here starts styling of the 2nd bottom row (gray) */
+#body3 {
+    width: 994px;
+    height: 200px;
+    background-color:#f8f9fa;
+    margin: 0 auto;
+}
+#body3 > ul {
+    margin: 40px 40px 20px 40px;
+}
+#body3 > ul > li {
+    margin: 0 12px;
+    color: #4f5259;
+    font-weight: bold;
+    cursor: pointer;
+}
+#body3 > p {
+    margin: 0 52px 7px;
+    color: #696969;
+}
+#body3 > p > span {
+    font-weight: bold;
+    color: #4f5259;
+}
+#body3 > ul > li > a {
+    color: #4f5259;
+} 
+/* End of the 2nd bottom row */

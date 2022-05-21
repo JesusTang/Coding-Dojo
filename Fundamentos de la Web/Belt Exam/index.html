@@ -6,36 +6,195 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="container">
 <!-- navigation bar -->
-        <div id="nav">
-
-
+        <div id="top">
+            <div id="nav">
+                <ul>
+                    <li>
+                        <a href="https://getbootstrap.com/">
+                            <img src="./option-i-bootstrap/logo.png" alt="Bootstrap-sidelogo">
+                        </a>
+                    </li>
+                    <li class="white">Home</li>
+                    <li><a href="https://getbootstrap.com/docs/4.3/getting-started/introduction/">Documentation</a></li>
+                    <li><a href="https://getbootstrap.com/docs/4.3/examples/">Examples</a></li>
+                    <li><a href="https://themes.getbootstrap.com/">Themes</a></li>
+                    <li><a href="https://expo.getbootstrap.com/">Expo</a></li>
+                    <li><a href="https://blog.getbootstrap.com/">Blog</a></li>
+                </ul>
+                <ul>
+                    <li>
+                        <select class="versionbox" name="Languages" onchange="cambiarVersion(this)">
+                            <option value="4.3">v4.3</option>
+                            <option value="5.2">Latest (v5.2)</option>
+                            <option value="4.2">v4.2</option>
+                            <option value="4.1">v4.1</option>
+                            <option value="4.0">v4.0</option>
+                        </select>
+                    </li>
+                    <li>
+                        <a href="https://github.com/twbs/bootstrap">
+                            <img src="./option-i-bootstrap/ico-git.png" alt="github">
+                        </a>
+                    </li>
+                    <li>
+                        <a href= "https://twitter.com/getbootstrap">
+                            <img src="./option-i-bootstrap/ico-twitter.png" alt="twitter">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://bootstrap-slack.herokuapp.com/">
+                            <img src="./option-i-bootstrap/ico-slack.png" alt="slack">
+                        </a>
+                    </li>
+                        <li>
+                            <a href="https://opencollective.com/bootstrap?language=es">
+                                <img src="./option-i-bootstrap/ico-coll.png" alt="coll">
+                            </a>
+                        </li>
+                    <li><button onclick="errorMessage()">Download</button></li>
+                </ul>
+            </div>
         </div>
+<!-- END of navigation bar -->
+
 
 <!-- main body (white)-->
         <div id="body1">
-
-
+            <div class="row">
+                <div class="leftside">
+                    <h1>Bootstrap</h1>
+                    <p>Build responsive, mobile-first projects on the web with the world-s most popular front-end component library. </p> 
+                    <p>Bootstrap is an open source toolkit for developing with HTML, CSS and JS. Quickly protoype your ideas or build your entire app with our Sass variables and mixins, responsive grid system, enxtensive prebuilt compoonents, and powerful plugins built on jQuery.
+                    </p>
+                    <ul>
+                        <li><button class="purplebutton"><a href="https://getbootstrap.com/docs/4.3/getting-started/download/">Get started</a></button></li>
+                        <li><button class="graybutton" onclick="errorMessage()">Download</button></li>
+                    </ul>
+                    <p class="tiny">Currently v4.3.1</p>
+                </div>
+                <img src="./option-i-bootstrap/main_img.png" alt="Bootstrap-logo">
+            </div>
+            <!-- advertisment box (Made removable by javascript) -->
+            <div id="ad">
+                <a href="https://segment.com/">
+                    <img src="./option-i-bootstrap/ad-segment.png" alt="ad-img">
+                    <ul>
+                        <li>Collect customer data once with a single API. Power your entire tech stack.</li>
+                        <li class="gray">ads via Carbon</li>
+                    </ul> 
+                </a>
+                <img onclick="remove('#ad')" class="delete" src="./option-i-bootstrap/delete-icon.png" alt="delete-icon">
+            </div>
+            <!-- END of advertisment box -->
         </div>
+<!-- END of main body -->
+
 
 <!-- 1st bottom row (gray)-->
         <div id="body2">
+            <div class="col">
+                <ul>
+                    <li><img src="./option-i-bootstrap/ico-install.png" alt=""></li>
+                    <li><h2>Installation</h2></li>
+                    <li><p>Include Bootstrap-s source Sass and Javascript files via npm, Composer or Meteor. Package managed installs don't include documentation, but do include our build system and readme.</p></li>
+                    <li>
+                        <p class="codeline">
+                            <span class="blue">$</span> 
+                            <span class="black">npm</span>
+                            <span class="turquoise">install</span> 
+                            <span class="black">bootstrap</span>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="codeline">
+                            <span class="blue">$</span> 
+                            <span class="black">gem</span>
+                            <span class="turquoise">install</span> 
+                            <span class="black">bootstrap</span>
+                            <span class="turquoise">-v</span>
+                            <span class="black">4.3.1</span>
+                        </p>
+                    </li>
+                </ul>
+                <br>
+                <hr>
+                <button onclick="goToInstallDocs()">Read installation docs</button>
+            </div>
 
-
+            <div class="col">
+                <ul>
+                    <li><img src="./option-i-bootstrap/ico-cdn.png" alt=""></li>
+                    <li><h2>BootstrapCDN</h2></li>
+                    <li><p>When you only need to include Bootstrap-s compiled CSS or JS, you can use <a href="#">Bootstrap CDN</a></p></li>
+                    <li><h3>CSS only</h3></li>
+                    <li>
+                        <p class="codeline">
+                            <span class="blue">&ltlink</span> 
+                            <span class="lightblue"> rel=</span>
+                            <span class="red">"stylesheet"</span>
+                            <span class="lightblue"> href=</span>
+                            <span class="red">"http</span>
+                        </p>
+                    </li>
+                    <li><h3>JS, Popper.js, and jQuery</h3></li>
+                    <li>
+                        <p class="codeline">
+                            <span class="blue">&ltscript</span> 
+                            <span class="lightblue"> src=</span>
+                            <span class="red">"https://code.jquery.</span>
+                        </p>
+                        <p class="codeline">
+                            <span class="blue">&ltscript</span> 
+                            <span class="lightblue"> src=</span>
+                            <span class="red">"https://cdnjs.cloudf</span>
+                        </p>
+                        <p class="codeline">
+                            <span class="blue">&ltscript</span> 
+                            <span class="lightblue"> src=</span>
+                            <span class="red">"https://stackpath.bo</span>
+                        </p>
+                    </li>
+                    <br>
+                </ul>
+                <hr>
+                <button onclick="goToDocs()">Explore the docs</button>
+            </div>
+            
+            <div class="col">
+                <ul>
+                    <li><img src="./option-i-bootstrap/ico-themes.png" alt=""></li>
+                    <li><h2>Official Themes</h2></li>
+                    <li><p>Take Bootstrap 4 to the next level with official premium themes— toolkits built on Bootstrap with new components and plugins, docs, and build tools.</p></li>
+                    <li><img class="theme" src="./option-i-bootstrap/theme_img.png" alt=""></li>
+                </ul>
+                <br>
+                <hr>
+                <button onclick="goToThemes()">Browse themes</button>
+            </div>
         </div>
+<!-- END of 1st bottom row -->
+
 
 <!-- 2nd bottom row (gray)  -->
         <div id="body3">
-
-
+            <ul>
+                <li><a href="https://github.com/twbs/bootstrap">GitHub</a></li>
+                <li><a href="https://twitter.com/getbootstrap">Twitter</a></li>
+                <li><a href="https://getbootstrap.com/docs/4.3/examples/">Examples</a></li>
+                <li>About</li>
+            </ul>
+            <p>Designed and built with all the love in the world by the <span>Bootstrap team</span> with the help of <span>our contributors.</span></p>
+            <p>Currently v4.3.1. Code licensed <span>MIT</span>, docs <span>CC BY 3.0.</span></p>
         </div>
-
-
     </div>
-
+<!-- END of 2nd bottom row -->
 
 
 
