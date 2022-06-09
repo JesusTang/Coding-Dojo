@@ -1,9 +1,13 @@
-class User:
+class CuentaBancaria:
+    nombre_banco = "DojoBank"
+    todas_las_cuentas = []  
 
     def __init__(self, name, mail) -> None:
         self.name = name 
         self.mail = mail
         self.balance = 0
+        CuentaBancaria.todas_las_cuentas.append(self)
+
 
     def hacer_deposito(self, monto):
         self.balance += monto
@@ -21,14 +25,19 @@ class User:
         print(self.name, 'transfirio $',monto, 'a', destinatario.name)
         return self
 
-
     def mostrar_balance_usuario(self):
         print(self.name, 'tiene $',self.balance)
         return self
 
-Jesus = User('Jesus', 'jesutang3@gmail.com')
-Miguel = User('Miguel', 'migueltang3@gmail.com')
-Jose = User('Jose', 'jctangsopan@gmail.com')
+    @classmethod
+    def showAllBalances(cls):
+        for cuenta in cls.todas_las_cuentas:
+            print(f'{cuenta.name} balance is: {cuenta.balance}')
+
+
+Jesus = CuentaBancaria('Jesus', 'jesutang3@gmail.com')
+Miguel = CuentaBancaria('Miguel', 'migueltang3@gmail.com')
+Jose = CuentaBancaria('Jose', 'jctangsopan@gmail.com')
 
 
 
@@ -36,9 +45,7 @@ Jesus.hacer_deposito(500).hacer_deposito(300).hacer_deposito(200).transfer_diner
 
 print('/*'*10)
 
-Jesus.mostrar_balance_usuario()
-Miguel.mostrar_balance_usuario()
-Jose.mostrar_balance_usuario()
+CuentaBancaria.showAllBalances()
 
 print('/*'*10)
 
@@ -46,9 +53,7 @@ Miguel.hacer_deposito(500).hacer_deposito(175).transfer_dinero(Jose, 200).transf
 
 print('/*'*10)
 
-Jesus.mostrar_balance_usuario()
-Miguel.mostrar_balance_usuario()
-Jose.mostrar_balance_usuario()
+CuentaBancaria.showAllBalances()
 
 print('/*'*10)
 
@@ -56,6 +61,4 @@ Jose.hacer_deposito(2500).transfer_dinero(Miguel, 867).transfer_dinero(Miguel, 6
 
 print('/*'*10)
 
-Jesus.mostrar_balance_usuario()
-Miguel.mostrar_balance_usuario()
-Jose.mostrar_balance_usuario()
+CuentaBancaria.showAllBalances()
