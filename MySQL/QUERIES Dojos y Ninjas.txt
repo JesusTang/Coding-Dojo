@@ -1,0 +1,90 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema esquema_dojos_y_ninjas
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema esquema_dojos_y_ninjas
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `esquema_dojos_y_ninjas` DEFAULT CHARACTER SET utf8mb3 ;
+USE `esquema_dojos_y_ninjas` ;
+
+-- -----------------------------------------------------
+-- Table `esquema_dojos_y_ninjas`.`dojos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `esquema_dojos_y_ninjas`.`dojos` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(255) NOT NULL,
+  `created_at` DATETIME NOT NULL,
+  `updated_at` DATETIME NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `esquema_dojos_y_ninjas`.`ninjas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `esquema_dojos_y_ninjas`.`ninjas` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(50) NOT NULL,
+  `last_name` VARCHAR(100) NOT NULL,
+  `age` SMALLINT NOT NULL,
+  `created_at` DATETIME NOT NULL,
+  `updated_at` DATETIME NOT NULL,
+  `dojo_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_ninjas_dojos_idx` (`dojo_id` ASC) VISIBLE,
+  CONSTRAINT `fk_ninjas_dojos`
+    FOREIGN KEY (`dojo_id`)
+    REFERENCES `esquema_dojos_y_ninjas`.`dojos` (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- Desde aqui empiezan las Queries 
+
+INSERT INTO dojos (nombre, created_at, updated_at) 
+VALUES ('Akita', NOW(), NOW()), ('Osaka', NOW(), NOW()), ('Tokyo', NOW(), NOW()); 
+
+DELETE
+FROM dojos
+LIMIT 3;
+
+INSERT INTO dojos (nombre, created_at, updated_at) 
+VALUES ('Kyoto', NOW(), NOW()), ('Hokkaido', NOW(), NOW()), ('Hyogo', NOW(), NOW()); 
+
+INSERT INTO ninjas (first_name, last_name, age, created_at, updated_at, dojo_id)
+VALUES ('Jordan', 'Poole', 23, NOW(), NOW(), 4), ('Klay', 'Thompson', 32, NOW(), NOW(), 4), ('Stephen', 'Curry', 34, NOW(), NOW(), 4);
+
+INSERT INTO ninjas (first_name, last_name, age, created_at, updated_at, dojo_id)
+VALUES ('Kyrie', 'Irving', 26, NOW(), NOW(), 5), ('Kevin', 'Durant', 28, NOW(), NOW(), 5), ('James', 'Harden', 27, NOW(), NOW(), 5);
+
+INSERT INTO ninjas (first_name, last_name, age, created_at, updated_at, dojo_id)
+VALUES ('Jayson', 'Tatum', 24, NOW(), NOW(), 6), ('Marcus', 'Smart', 26, NOW(), NOW(), 6), ('Al', 'Horford', 36, NOW(), NOW(), 6);
+
+SELECT dojos.nombre AS Dojo, ninjas.first_name AS Nombre, ninjas.last_name AS Apellido, ninjas.age AS edad FROM ninjas
+JOIN dojos ON dojos.id = ninjas.dojo_id
+WHERE dojo_id = 4;
+
+SELECT dojos.nombre AS Dojo, ninjas.first_name AS Nombre, ninjas.last_name AS Apellido, ninjas.age AS edad FROM ninjas
+JOIN dojos ON dojos.id = ninjas.dojo_id
+ORDER BY dojo_id DESC
+LIMIT 3;
+
+SELECT dojos.id AS Dojo_ID, dojos.nombre AS Dojo, ninjas.id AS Ninja_ID, ninjas.first_name AS Nombre, ninjas.last_name AS Apellido, ninjas.age AS edad FROM ninjas
+JOIN dojos ON dojos.id = ninjas.dojo_id
+ORDER BY ninjas.id DESC
+LIMIT 1;
