@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    top: 50px;
+    text-align: center;
+    justify-content: center;
+}
+body {
+    margin: 3%;
+}
+.boxes {
+    display:flex;
+    justify-content: space-evenly;
+    flex-flow: row;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.box {
+    background-color:aqua;
+    border-radius: 10px;
+    width: 200px;
+    height: 200px;
+}
