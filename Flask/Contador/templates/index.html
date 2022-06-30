@@ -5,19 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
     <title>Document</title>
 </head>
 <body>
-    <h1>Index Page</h1>
-<h3>Create a User</h3>
-<form action='/users' method='post'>
-    <label for='name'>Name:</label>
-    <input type='text' name='name'>
-    <label for='email'>Email:</label>
-    <input type='text' name='email'>
-    <input type='submit' value='create user'>
-</form>
+<h1>Counter</h1>
+<h4> {{  counter  }} </h4>
+<div>
+    <form action="/increment_by_2" method="get">
+        <button class="color1" type='submit'> 2 Clicks! </button>
+    </form>
 
+    <form action="/destroy_session" method="get">
+        <button class="color2" type='submit'> Reset </button>
+    </form>
+
+</div>
+<form action="/increment_by_x_many" method="post">
+    <label for="x_many">Increment by x</label>
+    <input type="text" name="x_many">
+    <input type="submit">
+</form>
 
 </body>
 </html>

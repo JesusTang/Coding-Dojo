@@ -1,20 +1,31 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 
 app = Flask(__name__)
+app.secret_key = 'Maduro mamaguebaso'
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    session['visits'] += 1
+    return render_template("index.html", counter=session['visits'])
 
-@app.route('/users', methods=['POST'])
-def create_user():
-    print("Got Post Info")
-    print(request.form)
-    print(request.form['name'])
-    print(request.form['email'])
-    # Nunca renderices una plantilla en una solicitud POST
-    # En su lugar, redirigiremos a nuestra ruta de índice
+@app.route('/destroy_session')
+def index_cleared():
+    session.clear()
+    session['visits'] = 0
+    return redirect('/')
+
+@app.route('/increment_by_2')
+def index_by_2():
+    session['visits'] += 1
+    return redirect('/')
+
+@app.route('/increment_by_x_many', methods=["POST"])
+def index_by_x():
+    x = int(request.form['x_many'])
+    session['visits'] += (x-1)
     return redirect('/')
 
 if __name__== "__main__":
     app.run(debug=True)
+
+
