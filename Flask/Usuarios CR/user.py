@@ -28,3 +28,31 @@ class User:
         VALUES ( %(fname)s , %(lname)s , %(email)s);"""
         # data es un diccionario que se pasará al método de guardar desde server.py
         return connectToMySQL('usersschema').query_db( query, data )
+
+
+    @classmethod
+    def get_one_specific(cls, data ):
+        query = """
+        SELECT * FROM usuarios 
+        WHERE id = %(id)s;"""
+        return connectToMySQL('usersschema').query_db( query, data )
+
+
+
+
+
+    @classmethod
+    def edit_on_db(cls, data ):
+        query = """
+        UPDATE usuarios
+        SET nombre = %(fname)s, apellido = %(lname)s, correo_electronico =  %(email)s, updated_at = NOW()
+        WHERE id = %(id)s;"""
+        return connectToMySQL('usersschema').query_db( query, data )
+
+
+
+    @classmethod
+    def delete_from_db(cls, data ):
+        query = """
+        DELETE FROM usuarios WHERE id = %(id)s;"""
+        return connectToMySQL('usersschema').query_db( query, data )

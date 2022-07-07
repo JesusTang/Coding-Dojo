@@ -11,6 +11,7 @@
     <table>
         <thead>
             <tr>
+                <th>ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
@@ -20,10 +21,12 @@
         <tbody>
             {% for user in users %}
             <tr>
+                <td> {{user.id}} </td>
                 <td> {{user.fname}} </td>
                 <td> {{user.lname}} </td>
                 <td> {{user.email}} </td>
                 <td> {{user.created_at}} </td>
+                <td> <a href="/users/{{user.id}}">Show</a> | <a href="/users/{{user.id}}/edit">Edit</a> | <a href="/deleting-user-{{user.id}}">Delete</a></td>
             </tr>
             {% endfor %}
         </tbody>
