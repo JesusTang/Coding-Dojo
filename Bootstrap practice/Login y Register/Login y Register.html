@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <!-- {% with gen_messages = get_flashed_messages(category_filter=['general_error']) %}
+                {% if gen_messages %}
+                    {% for msg in gen_messages %}
+                        <p style="color: black">{{msg}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %} -->
+    <main>
+        <!-- {% with reg_messages = get_flashed_messages(category_filter=['registration_error']) %}
+                {% if reg_messages %}
+                    {% for msg in reg_messages %}
+                        <p style="color: white">{{msg}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %} -->
+            
+        <h1>Register</h1>
+        <form action="/process-register" method="post" id="form">
+            <label for="fname">First Name:</label>
+            <input type="text" name="fname">
+
+            <label for="lname">Last Name:</label>
+            <input type="text" name="lname">
+
+            <label for="email">Email:</label>
+            <input type="text" name="email">
+
+            <label for="pw">Password:</label>
+            <input type="text" name="pw">
+
+            <label for="confirm_pw">Confirm Password:</label>
+            <input type="text" name="confirm_pw">
+            <button type="submit"> Register </button>
+        </form>
+    </main>
+<br><br><br><br>
+
+    <main>
+        <!-- {% with log_messages = get_flashed_messages(category_filter=['login_error']) %}
+                {% if log_messages %}
+                    {% for msg in log_messages %}
+                        <p style="color: white">{{msg}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %} -->
+            
+        <h1>Login</h1>
+        <form action="/process-login" method="post" id="form">
+            <label for="email">Email:</label>
+            <input type="text" name="email">
+
+            <label for="pw">Password:</label>
+            <input type="text" name="pw">
+
+            <button type="submit"> Login </button>
+        </form>
+    </main>
+
+</body>
+</html>

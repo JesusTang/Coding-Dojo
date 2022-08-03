@@ -32,7 +32,7 @@ CREATE TABLE `usuarios` (
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (3,'Stephen','Curry','sc@gmail.com','2022-07-06 16:51:26','2022-07-06 16:51:26'),(4,'Lebron','James','lbj@gmail.com','2022-07-06 16:51:26','2022-07-06 16:51:26'),(5,'Jayson','Tatum','jt@gmail.com','2022-07-06 16:52:13','2022-07-06 16:52:13'),(6,'Tyler','Herro','th@gmail.com','2022-07-06 16:52:13','2022-07-06 16:52:13'),(7,'123231','12213','123231213@gmail.com','2022-07-06 17:24:26','2022-07-06 17:24:26');
+INSERT INTO `usuarios` VALUES (3,'Stephen','Curry','sc@gmail.com','2022-07-06 16:51:26','2022-07-06 22:50:44'),(5,'Jayson','Tatum','jt@gmail.com','2022-07-06 16:52:13','2022-07-06 22:50:33'),(6,'Kevin','Durant','KD@gmail.com','2022-07-06 16:52:13','2022-07-06 19:16:09'),(7,'LeBron','James','lbj@gmail.com','2022-07-06 17:24:26','2022-07-06 19:15:58'),(9,'Jesus','Tang','jt@gmail.com','2022-07-06 19:48:30','2022-07-06 19:48:30');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-06 17:32:37
+-- Dump completed on 2022-07-06 22:52:33

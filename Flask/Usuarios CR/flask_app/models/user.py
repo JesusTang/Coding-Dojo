@@ -1,5 +1,5 @@
 # importar la función que devolverá una instancia de una conexión
-from mysqlconnection import connectToMySQL
+from flask_app.config.mysqlconnection import connectToMySQL
 # modelar la clase después de la tabla friend de nuestra base de datos
 class User:
     def __init__( self , data ):
@@ -10,6 +10,7 @@ class User:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
     # ahora usamos métodos de clase para consultar nuestra base de datos
+
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM usuarios;"
@@ -21,6 +22,7 @@ class User:
         for user in results:
             users.append( cls(user) )
         return users
+
     @classmethod
     def save_into_db(cls, data ):
         query = """
@@ -29,17 +31,12 @@ class User:
         # data es un diccionario que se pasará al método de guardar desde server.py
         return connectToMySQL('usersschema').query_db( query, data )
 
-
     @classmethod
     def get_one_specific(cls, data ):
         query = """
         SELECT * FROM usuarios 
         WHERE id = %(id)s;"""
         return connectToMySQL('usersschema').query_db( query, data )
-
-
-
-
 
     @classmethod
     def edit_on_db(cls, data ):
@@ -48,8 +45,6 @@ class User:
         SET nombre = %(fname)s, apellido = %(lname)s, correo_electronico =  %(email)s, updated_at = NOW()
         WHERE id = %(id)s;"""
         return connectToMySQL('usersschema').query_db( query, data )
-
-
 
     @classmethod
     def delete_from_db(cls, data ):

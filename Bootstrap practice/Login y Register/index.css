@@ -1,0 +1,38 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    color: #ffcc00;
+}
+main {
+    background-color: #33393e;
+    display: flex;
+    flex-flow: column;
+
+    width: 500px;
+    padding: 0px 30px 30px 30px;
+    margin: 20px;
+}
+form {
+    display: flex;
+    flex-flow: column;
+}
+label {
+    color: white;
+    margin: 10px 0 5px 0;
+    height: 15px;
+}
+input {
+    height: 23px;
+}
+button {
+    margin-top: 10px;
+    align-self: baseline;
+    padding: 5px;
+}
+

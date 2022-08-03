@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid justify-content-between">
+                <h1 class="text-warning">Edit your show!</h1>
+                <div class="justify-content-end">
+                    <a class="navbar-brand" href="/shows">TV Shows</a>
+                    <a class="navbar-brand" href="/shows/new">+ Create</a>
+                    <a class="navbar-brand" href="/process-logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    <!-- {% with flash_messages = get_flashed_messages(category_filter=['show_error']) %} -->
+        <!-- {% if flash_messages %} -->
+        <div class="row mt-3 ms-4">
+            <div class="col-5 card ms-4 mb-2" style="background-color: #f7d6d9;">
+                <div class="card-body text-danger">
+                    <!-- {% for msg in flash_messages %} -->
+                    <h6 class="card-subtitle mb-1 text-center">{{msg}}</h6>
+                    <!-- {% endfor %} -->
+                </div>
+            </div>
+        </div>
+        <!-- {% endif %} -->
+    <!-- {% endwith %} -->
+        <div class="row mt-4" style="display: flex; justify-content: space-around;">
+            <div class="col-5 bg-secondary p-4">
+                <form action="/process-edit-show-{{show.id}}" method="POST" id="edit_show_form">
+                    <div class="mb-2 text-white">
+                        <label for="title" class="form-label">Title:</label>
+                        <textarea class="form-control" name="title" id="title" rows="1">{{show.title}}</textarea>
+                    </div>
+                    <div class="mb-2 text-white">
+                        <label for="network" class="form-label">Network:</label>
+                        <textarea class="form-control" name="network" id="network" rows="1">{{show.network}}</textarea>
+                    </div>
+                    <div class="mb-2 text-white">
+                        <label for="release_date" class="form-label">Release Date:</label>
+                        <input type="date" name="release_date" class ="form-control" form="edit_show_form" id="release_date">
+                    </div>
+                    <div class="mb-2 text-white">
+                        <label for="description" class="form-label">Description:</label>
+                        <textarea class="form-control" name="description" id="description" rows="3">{{show.description}}</textarea>
+                    </div>
+                    <button form="edit_show_form" type="submit" class="btn btn-warning" >Submit</button>
+                </form>
+            </div>
+                    
+                
+            
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script>
+    function myFunction() {
+        document.getElementById("release_date").defaultValue = "{{show.release_date}}";
+    }
+    myFunction()
+</script>
+</body>
+</html>

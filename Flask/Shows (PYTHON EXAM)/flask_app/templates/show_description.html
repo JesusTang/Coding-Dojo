@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid justify-content-between">
+                <h1 class="text-warning">Welcome, {{session.first_name}}!</h1>
+                <div class="justify-content-end">
+                    <a class="navbar-brand" href="/shows">TV Shows</a>
+                    <a class="navbar-brand" href="/shows/new">+ Create</a>
+                    <a class="navbar-brand" href="/process-logout">Logout</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col-8 m-3">
+                <h1 class="text-dark">{{show.title}}</h1>
+            </div>
+            <!-- <div class="col-3">
+                Aqui iba el "Posted By: first_name y last_name"
+            </div> -->
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <table class="table table-hover">
+                    <tr>
+                        <th class="table-secondary">Network:</th>
+                        <td class="table-light">{{show.network}}</td>
+                    </tr>
+                    <tr>
+                        <th class="table-secondary">Release Date:</th>
+                        <td class="table-light">{{show.release_date}}</td>
+                    </tr>
+                    <tr>
+                        <th class="table-secondary">Description:</th>
+                        <td class="table-light">{{show.description}}</td>
+                    </tr>
+                    <tr>
+                        <th class="table-secondary">Posted by:</th>
+                        <td class="table-light">{{show.first_name}} {{show.last_name}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
