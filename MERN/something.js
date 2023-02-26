@@ -99,9 +99,75 @@
 // console.log(secondKey[0]); //
 // console.log(willThisWork); //
 
-const myVar = 10 < 20
-    ? 5 < 10
-        ? true
-        : false
-    : false
-console.log(myVar)
+// const myVar = 10 < 20
+//     ? 5 < 10
+//         ? true
+//         : false
+//     : false
+// console.log(myVar)
+
+// let canAfford = (itemPrice, accountBalance) => {
+//     if (itemPrice > accountBalance) {
+//         return `Cannot afford! You are $${itemPrice - accountBalance} short`;
+//     } else {
+//         return "Can afford!";
+//     }
+// };
+
+// class Vehicle {
+//     constructor(manufacturer, model, color) {
+//         this.miles = 0;
+//         this.manufacturer = manufacturer;
+//         this.model = model;
+//         this.color = color;
+//     }
+
+//     drive() {
+//         this.miles += 10;
+//         console.log(`You drove your ${ this.constructor.name } and it now has ${this.miles} miles on it.`);
+//     }
+//     parentFunction() {
+//         return "This is coming from the parent!";
+//     }
+// }
+
+// const car = new Vehicle ("BMW", "M5", "Blue");
+// car.drive();
+// car.drive();
+// car.drive();
+// console.log(car.miles)
+
+// class M5 extends Vehicle {
+//     constructor(color) {
+//         super("BMW", "M5", color);
+//         this.hp = 616;
+//     }
+
+//     printSpecSummary() {
+//         console.log(
+//             `BMW M5 with a 4.4L V8 Twin Turbo engine packin ${this.hp}HP and 553 lb-ft TQ`
+//         );
+//     }
+//     childFunction() {
+//         // usando super, podemos llamar el método adre
+//         const message = super.parentFunction();
+//         console.log(message);
+//     }
+// }
+
+// const carro = new M5 ("white")
+// console.log(carro)
+// carro.printSpecSummary()
+// carro.drive()
+// carro.drive()
+// carro.parentFunction()
+
+const myReactComponent = React.createElement("h1", {}, "I am creating my first React component")
+import react from 'react' 
+class Navbar extends react.Component {
+    render () {
+        return (
+            <nav className></nav>
+        )
+    }
+}
