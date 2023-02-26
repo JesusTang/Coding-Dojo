@@ -1,7 +1,8 @@
+import React from 'react';
 import './App.css';
-
-import PersonCard from './components/PersonCard';
-
+import PersonCard from './components/MyNewComponent';
+    
+    
 function App() {
   return (
     <div className="App">
@@ -12,5 +13,6 @@ function App() {
     </div>
   );
 }
-
+    
 export default App;
+
