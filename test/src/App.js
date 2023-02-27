@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import PersonCard from './components/MyNewComponent';
+import PersonCard from './components/Gran Inversion/PersonCard';
     
     
 function App() {
