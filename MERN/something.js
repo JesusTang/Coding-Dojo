@@ -162,12 +162,12 @@
 // carro.drive()
 // carro.parentFunction()
 
-const myReactComponent = React.createElement("h1", {}, "I am creating my first React component")
-import react from 'react' 
-class Navbar extends react.Component {
-    render () {
-        return (
-            <nav className></nav>
-        )
-    }
-}
+// const myReactComponent = React.createElement("h1", {}, "I am creating my first React component")
+// import react from 'react' 
+// class Navbar extends react.Component {
+//     render () {
+//         return (
+//             <nav className></nav>
+//         )
+//     }
+// }
