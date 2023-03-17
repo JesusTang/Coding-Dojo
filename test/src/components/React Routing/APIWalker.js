@@ -7,7 +7,7 @@ import { useState } from "react";
 
 function APIWalker() {
 
-  const [id, setId] = useState(0)
+  const [id, setId] = useState('')
   const [category, setCategory] = useState('')
   const [info, setInfo] = useState([])
   const [planet, setPlanet] = useState([])
@@ -37,30 +37,33 @@ function APIWalker() {
 
   const searchForInfo = async (ev) => {
     ev.preventDefault()
-    setCategory(ev.target.dropdown.value);
-    console.log(category);
-    await setId(1);
-    console.log(id);
-    console.log(ev.target.idinput.value);
+    var var1 = ev.target.dropdown.value
+    var var2 = ev.target.idinput.value
+    setCategory(var1)
+    setId(var2)
     setBuscado(true)
     try {
-      // console.log(id)
-      const response = await fetch('https://swapi.dev/api/'+category+'/'+id+'/')
+      const response = await fetch('https://swapi.dev/api/'+var1+'/'+var2+'/')
       const data = await response.json()
-      console.log(data)
       setInfo(data)
-      await getPlanet(data)
+      console.log(data)
+      if (var1 === 'people' || var1=== 'species'){
+        await getPlanet(data)
+      }
+      if (data.detail === 'Not found') {
+        throw Error
+      }
+      console.log(errorState)
       setErrorState(false)
     }
     catch (error) {
       if (error) {
-        console.log('error =', error)
-        // setErrorState(true)
+        console.log('error mirameeeeeeeeeee =', error)
+        setErrorState(true)
       }
     }
   }
   const getPlanet = async (link) => {
-    // console.log(link.homeworld)
     const planet = await fetch(link.homeworld)
     const data = await planet.json()
     setPlanet(data)
