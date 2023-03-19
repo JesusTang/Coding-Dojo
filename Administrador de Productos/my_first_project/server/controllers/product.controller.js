@@ -16,5 +16,17 @@ module.exports.createProduct = async (req,res) => {
     })
     console.log(req.body)
     res.json(new_product)
-    // .catch(err => res.json(err))
+}
+module.exports.deleteProduct = async (req, res) => {
+    const id = req.params.id
+    await Product.findOneAndRemove({_id: id})
+    res.json(id + "has been deleted")
+}
+module.exports.editProduct = async (req, res) => {
+    const id = req.params.id
+    const product = await Product.updateOne(
+        {_id: id},
+        { ...req.body }
+    )
+    return res.json(product)
 }
