@@ -5,6 +5,11 @@ module.exports.getAllProducts = async (req, res) => {
     const products = await Product.find()
     res.json(products)
 }
+module.exports.getOneProduct = async (req, res) => {
+    const id = req.params.id
+    const product = await Product.findOne({_id: id})
+    res.json(product)
+}
 module.exports.createProduct = async (req,res) => {
     const new_product = await Product.create({
         ...req.body

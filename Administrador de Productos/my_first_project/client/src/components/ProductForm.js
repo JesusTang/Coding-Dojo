@@ -17,21 +17,24 @@ const PersonForm = () => {
   }
 
   return ( 
-    <form onSubmit={onSubmitHandler}>
-      <p>
-        <label>Title</label>
-        <input type="text" onChange={e => setTitle(e.target.value)} value={title}/>
-      </p>
-      <p>
-        <label>Price</label>
-        <input type="number" min={0} onChange={e => setPrice(e.target.value)} value={price}/>
-      </p>
-      <p>
-        <label>Description</label>
-        <input type="text" onChange={e => setDescription(e.target.value)} value={description}/>
-      </p>
-      <input type='submit'/>
-    </form>
+    <div>
+      <h2>Product Manager</h2>
+      <form onSubmit={onSubmitHandler}>
+        <p>
+          <label>Title</label>
+          <input type="text" onChange={e => setTitle(e.target.value)} value={title}/>
+        </p>
+        <p>
+          <label>Price</label>
+          <input type="number" min={0} onChange={e => setPrice(e.target.value)} value={price}/>
+        </p>
+        <p>
+          <label>Description</label>
+          <input type="text" onChange={e => setDescription(e.target.value)} value={description}/>
+        </p>
+        <input type='submit'/>
+      </form>
+    </div>
   );
 }
 
