@@ -1,0 +1,18 @@
+const express = require('express');
+const app = express();
+const cors = require('cors');
+const port = 8000;
+app.use(cors());
+
+app.use( express.json() );
+app.use( express.urlencoded({ extended: true }) );
+
+const product_router = require('./server/routes/product.routes');
+require('./server/config/mongoose.config');
+
+
+app.use(product_router);
+
+app.listen(port ,() => {
+    console.log(`You are now listening at port ${port}`)
+})
