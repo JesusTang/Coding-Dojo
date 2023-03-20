@@ -9,7 +9,7 @@ const Joke = mg.model('Joke', mg.Schema({
   punchline: {
     type: String,
     required: [true, "There must be a punchline"],
-    minlength: [3, "The setup has to be at least 10 characters long"]
+    minlength: [3, "The punchline has to be at least 3 characters long"]
   },
 }, {timestamps: true}))
 
