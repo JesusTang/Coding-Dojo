@@ -7,11 +7,11 @@ app.use(cors());
 app.use( express.json() );
 app.use( express.urlencoded({ extended: true }) );
 
-const product_router = require('./server/routes/product.routes');
+const author_router = require('./server/routes/author.routes');
 require('./server/config/mongoose.config');
 
 
-app.use(product_router);
+app.use(author_router);
 
 app.listen(port ,() => {
     console.log(`You are now listening at port ${port}`)
