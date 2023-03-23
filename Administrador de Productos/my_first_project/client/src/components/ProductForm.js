@@ -1,41 +1,50 @@
-import React, {useState} from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
 
-const ProductForm = () => {
-  const [title, setTitle] = useState("")
-  const [price, setPrice] = useState(0)
-  const [description, setDescription] = useState("")
+const ProductForm = (props) => {
+  const { initialTitle, initialPrice, initialDescription, onSubmitProp } =
+    props;
+  const [title, setTitle] = useState(initialTitle);
+  const [price, setPrice] = useState(initialPrice);
+  const [description, setDescription] = useState(initialDescription);
+
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:8000/api/products', {
-      title,
-      price,
-      description
-    })
-      .then(res=>console.log("Response: ", res))
-      .catch(err=>console.log("Error: ", err))
-  }
+    onSubmitProp({ title, price, description });
+  };
 
-  return ( 
+  return (
     <div>
       <h2>Product Manager</h2>
       <form onSubmit={onSubmitHandler}>
         <p>
           <label>Title</label>
-          <input type="text" onChange={e => setTitle(e.target.value)} value={title}/>
+          <input
+            type="text"
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
+          />
         </p>
         <p>
           <label>Price</label>
-          <input type="number" min={0} onChange={e => setPrice(e.target.value)} value={price}/>
+          <input
+            type="number"
+            min={0}
+            onChange={(e) => setPrice(e.target.value)}
+            value={price}
+          />
         </p>
         <p>
           <label>Description</label>
-          <input type="text" onChange={e => setDescription(e.target.value)} value={description}/>
+          <input
+            type="text"
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
+          />
         </p>
-        <input type='submit'/>
+        <input type="submit" />
       </form>
     </div>
   );
-}
+};
 
-export default ProductForm ;
+export default ProductForm;
