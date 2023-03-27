@@ -12,19 +12,26 @@ function Main() {
     { field_name: "Preferred Position", value: "player.preferred_position" },
     { field_name: "Actions", value: `delete_btn` }
   ];
+  const removeFromDom = (playerId) => {
+    setPlayers(players.filter((player) => player._id !== playerId));
+  };
   useEffect(() => {
     axios
       .get("http://localhost:8000/api/players")
       .then((res) => setPlayers(res.data))
       .catch((err) => console.log("Error: ", err));
-  });
+  }, []);
 
   return (
     <div className="container col-8 justify-content-start">
       <NavBar />
       <hr></hr>
       <SubLinks />
-      <PlayerList players={players} fields={fields} />
+      <PlayerList
+        players={players}
+        fields={fields}
+        removeFromDom={removeFromDom}
+      />
     </div>
   );
 }

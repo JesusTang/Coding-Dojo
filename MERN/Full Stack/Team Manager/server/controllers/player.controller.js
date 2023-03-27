@@ -26,15 +26,15 @@ module.exports.deletePlayer = async (req, res) => {
   res.json(id + "has been deleted");
 };
 module.exports.editPlayer = async (req, res) => {
-  const id = req.params.id;
+  const { id, game_number } = req.params;
   try {
-    await Player.findOneAndUpdate(
-      { _id: id },
+    const player = await Player.findOneAndUpdate(
+      { _id: id, "activity.game": game_number },
       { ...req.body },
       { runValidators: true }
     );
-    console.log(req.body);
-    res.json(req.body);
+    console.log(player);
+    res.json(player);
   } catch (error) {
     res.status(400).json(error);
   }

@@ -14,9 +14,11 @@ const PlayerForm = (props) => {
     onSubmitProp({
       name,
       preferred_position,
-      game1_state: "Undecided",
-      game2_state: "Undecided",
-      game3_state: "Undecided"
+      activity: [
+        { game: 1, status: "Undecided" },
+        { game: 2, status: "Undecided" },
+        { game: 3, status: "Undecided" }
+      ]
     });
   };
   const validateName = (e) => {

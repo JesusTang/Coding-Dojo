@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 function PlayerDelete(props) {
   const navegar = useNavigate();
-  const { id } = props;
+  const { id, removeFromDom } = props;
   const deletePlayer = () => {
     axios
       .get(`http://localhost:8000/api/players/${id}`)
@@ -14,6 +14,7 @@ function PlayerDelete(props) {
         if (window.confirm(`Are you sure you want to remove ${name}?`)) {
           axios.delete(`http://localhost:8000/api/players/${id}/delete`);
           navegar("/");
+          removeFromDom(id);
         }
       });
   };

@@ -16,9 +16,11 @@ const Player = mg.model(
         type: String,
         required: false
       },
-      game1_state: { type: String },
-      game2_state: { type: String },
-      game3_state: { type: String }
+      activity: [
+        { game: Number, status: String },
+        { game: Number, status: String },
+        { game: Number, status: String }
+      ]
     },
     { timestamps: true }
   )

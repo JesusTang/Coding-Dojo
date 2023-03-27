@@ -6,10 +6,8 @@ import PlayerList from "../components/PlayerList";
 
 function GameStatus(props) {
   const { game_number } = useParams();
-  const [gameN, setGameN] = useState(game_number);
   const [players, setPlayers] = useState([]);
   const [fields, setFields] = useState([]);
-  const [loaded, setLoaded] = useState(0);
   // GET ALL PLAYERS AND THEIR STATES FOR EVERY GAME
   //CHANGE IMPORTS IN APP.JS
   useEffect(() => {
@@ -17,8 +15,6 @@ function GameStatus(props) {
       .get("http://localhost:8000/api/players")
       .then((res) => setPlayers(res.data))
       .then(() => {
-        setLoaded(1);
-        console.log("loaded");
         setFields([
           { field_name: "Player Name", value: "player.name" },
           { field_name: "Actions", value: "players_activity" }
@@ -33,61 +29,17 @@ function GameStatus(props) {
         <h1>Player Status - Game {game_number}</h1>
         <hr></hr>
         <h6 className="text-center mb-3 d-flex justify-content-center">
-          <a
-            href="/status/game/1"
-            // style={{ cursor: "pointer" }}
-            className="me-2 ms-2"
-            // onClick={() => {
-            //   window.location.href = "/status/game/1";
-            // }}
-          >
+          <Link className="me-2 ms-2" to="/status/game/1">
             Game 1
-          </a>{" "}
+          </Link>
           |
-          <a
-            href="/status/game/2"
-            // style={{ cursor: "pointer" }}
-            className="me-2 ms-2"
-            // onClick={() => {
-            //   window.location.href = "/status/game/2";
-            // }}
-          >
+          <Link className="me-2 ms-2" to="/status/game/2">
             Game 2
-          </a>{" "}
+          </Link>
           |
-          <a
-            href="/status/game/3"
-            // style={{ cursor: "pointer" }}
-            className="me-2 ms-2"
-            // onClick={() => {
-            //   window.location.href = "/status/game/3";
-            // }}
-          >
+          <Link className="me-2 ms-2" to="/status/game/3">
             Game 3
-          </a>
-          {/* <Link
-            className="me-2 ms-2"
-            to="/status/game/1"
-            onClick={() => setLoaded(0)}
-          >
-            Game 1
-          </Link>{" "}
-          |
-          <Link
-            className="me-2 ms-2"
-            to="/status/game/2"
-            onClick={() => setLoaded(0)}
-          >
-            Game 2
-          </Link>{" "}
-          |
-          <Link
-            className="me-2 ms-2"
-            to="/status/game/3"
-            onClick={() => setLoaded(0)}
-          >
-            Game 3
-          </Link> */}
+          </Link>
         </h6>
         <PlayerList players={players} fields={fields} />
       </div>
