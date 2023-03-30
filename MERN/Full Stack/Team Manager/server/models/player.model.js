@@ -32,3 +32,12 @@ module.exports = {
 // "firstName":"john",
 // "lastName":"Wick"
 // }
+// {
+//   "name":"john",
+//    "preferred_position":"Wick",
+//   "activity": [
+//           { "game": 1, "status": "Undecided" },
+//           { "game": 2, "status": "Undecided" },
+//           { "game": 3, "status": "Undecided" }
+//         ]
+//   }

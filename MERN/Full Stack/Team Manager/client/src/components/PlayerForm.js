@@ -5,7 +5,7 @@ const PlayerForm = (props) => {
   const { onSubmitProp, errors } = props;
   const [name, setName] = useState("");
   const [preferred_position, setPreferred_position] = useState("");
-  const [error2, setError2] = useState(false);
+  const [error2, setError2] = useState(true);
   const red = {
     color: "red"
   };

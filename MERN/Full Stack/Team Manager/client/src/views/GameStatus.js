@@ -2,24 +2,15 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import NavBar from "../components/NavBar";
-import PlayerList from "../components/PlayerList";
+import PlayerListGameStatus from "../components/PlayerListGameStatus";
 
 function GameStatus(props) {
   const { game_number } = useParams();
   const [players, setPlayers] = useState([]);
-  const [fields, setFields] = useState([]);
-  // GET ALL PLAYERS AND THEIR STATES FOR EVERY GAME
-  //CHANGE IMPORTS IN APP.JS
   useEffect(() => {
     axios
       .get("http://localhost:8000/api/players")
-      .then((res) => setPlayers(res.data))
-      .then(() => {
-        setFields([
-          { field_name: "Player Name", value: "player.name" },
-          { field_name: "Actions", value: "players_activity" }
-        ]);
-      });
+      .then((res) => setPlayers(res.data));
   }, []);
 
   return (
@@ -41,12 +32,10 @@ function GameStatus(props) {
             Game 3
           </Link>
         </h6>
-        <PlayerList players={players} fields={fields} />
+        <PlayerListGameStatus players={players} />
       </div>
     </div>
   );
 }
 
 export default GameStatus;
-
-// React components will only re-render if the state or props are updated. If you try to navigate to the page you are currently on, and there isn't a change in state or props in that component, the component will not re-render/refresh. If you update the state/props of the component, or force the page to refresh, it will refresh. And unfortunately, react-router-dom will not refresh the page for you if you are navigating to the current page. –

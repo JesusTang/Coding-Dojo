@@ -7,11 +7,6 @@ import SubLinks from "../components/SubLinks";
 function Main() {
   const [players, setPlayers] = useState([]);
 
-  const fields = [
-    { field_name: "Player Name", value: "player.name" },
-    { field_name: "Preferred Position", value: "player.preferred_position" },
-    { field_name: "Actions", value: `delete_btn` }
-  ];
   const removeFromDom = (playerId) => {
     setPlayers(players.filter((player) => player._id !== playerId));
   };
@@ -27,11 +22,7 @@ function Main() {
       <NavBar />
       <hr></hr>
       <SubLinks />
-      <PlayerList
-        players={players}
-        fields={fields}
-        removeFromDom={removeFromDom}
-      />
+      <PlayerList players={players} removeFromDom={removeFromDom} />
     </div>
   );
 }

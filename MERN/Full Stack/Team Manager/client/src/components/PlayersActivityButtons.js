@@ -6,33 +6,14 @@ function PlayersActivityButtons(props) {
   const { id } = props;
   const { game_number } = useParams();
   const [state, setState] = useState("");
-
+  const gameID = parseInt(game_number);
   const default_style = "btn btn-light border ms-3 me-3";
-  var style1 = "";
-  var style2 = "";
-  var style3 = "";
-  if (state === "Playing") {
-    style1 = "btn btn-success border ms-3 me-3";
-  } else {
-    style1 = default_style;
-  }
 
-  if (state === "Not Playing") {
-    style2 = "btn btn-danger border ms-3 me-3";
-  } else {
-    style2 = default_style;
-  }
-
-  if (state === "Undecided") {
-    style3 = "btn btn-warning border ms-3 me-3";
-  } else {
-    style3 = default_style;
-  }
   useEffect(() => {
     axios.get(`http://localhost:8000/api/players/${id}`).then((res) => {
-      setState(res.data.activity.find((x) => x.game == game_number).status);
+      setState(res.data.activity.find((x) => x.game === gameID).status);
     });
-  }, [id, game_number]);
+  }, [id, gameID]);
   const updateActivity = async (ev) => {
     const input = {
       $set: {
@@ -49,7 +30,11 @@ function PlayersActivityButtons(props) {
   return (
     <div className="text-center">
       <button
-        className={style1}
+        className={
+          state === "Playing"
+            ? "btn btn-success border ms-3 me-3"
+            : default_style
+        }
         onClick={(ev) => {
           updateActivity(ev);
         }}
@@ -58,7 +43,11 @@ function PlayersActivityButtons(props) {
         Playing
       </button>
       <button
-        className={style2}
+        className={
+          state === "Not Playing"
+            ? "btn btn-danger border ms-3 me-3"
+            : default_style
+        }
         onClick={(ev) => {
           updateActivity(ev);
         }}
@@ -67,7 +56,11 @@ function PlayersActivityButtons(props) {
         Not Playing
       </button>
       <button
-        className={style3}
+        className={
+          state === "Undecided"
+            ? "btn btn-warning border ms-3 me-3"
+            : default_style
+        }
         onClick={(ev) => {
           updateActivity(ev);
         }}
