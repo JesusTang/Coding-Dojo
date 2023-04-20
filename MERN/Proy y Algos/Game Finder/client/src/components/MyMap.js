@@ -7,7 +7,6 @@ import {
 import { useEffect, useMemo, useState } from "react";
 
 function MyMap(props) {
-  // const map = useGoogleMap();
   const [selectedMarker, setSelectedMarker] = useState(false);
   const center = useMemo(() => ({ lat: -12.06743, lng: -77.041307 }), []);
   const [markers, setMarkers] = useState([]);
@@ -51,9 +50,9 @@ function MyMap(props) {
       // onDrag={(e) => {
       //   console.log(e);
       // }}
-      onCenterChanged={(e) => {
-        console.log(GoogleMap.center);
-      }}
+      // onCenterChanged={(e) => {
+      //   console.log(GoogleMap.center);
+      // }}
       mapContainerClassName="map-container col border rounded-start rounded-5"
       onClick={onMapClick}
       onRightClick={onMapClick}
@@ -79,7 +78,7 @@ function MyMap(props) {
       )}
     </GoogleMap>
   );
-  console.log(map.center);
+  // console.log(map.center);
   return map;
 }
 
