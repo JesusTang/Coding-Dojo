@@ -3422,3 +3422,40 @@ MERN/Proy y Algos/Helados.js
 MERN/Proy y Algos/tempCodeRunnerFile.js
 asd.txt
 MERN/Proy y Algos/Game Finder/client/.env
+fullstack/.DS_Store
+fullstack/backend/.DS_Store
+fullstack/backend/package-lock.json
+fullstack/backend/package.json
+fullstack/backend/server.js
+fullstack/backend/.adminjs/.entry.js
+fullstack/backend/controllers/productos.controller.js
+fullstack/backend/controllers/usuarios.controller.js
+fullstack/backend/models/productos.js
+fullstack/backend/models/usuarios.js
+fullstack/backend/routes/productos.routes.js
+fullstack/backend/routes/usuarios.routes.js
+fullstack/frontend/.DS_Store
+fullstack/frontend/package-lock.json
+fullstack/frontend/package.json
+fullstack/frontend/README.md
+fullstack/frontend/public/favicon.ico
+fullstack/frontend/public/index.html
+fullstack/frontend/public/logo192.png
+fullstack/frontend/public/logo512.png
+fullstack/frontend/public/manifest.json
+fullstack/frontend/public/robots.txt
+fullstack/frontend/src/App.css
+fullstack/frontend/src/App.js
+fullstack/frontend/src/App.test.js
+fullstack/frontend/src/index.css
+fullstack/frontend/src/index.js
+fullstack/frontend/src/logo.svg
+fullstack/frontend/src/reportWebVitals.js
+fullstack/frontend/src/setupTests.js
+fullstack/frontend/src/components/actualizarProducto/ActualizarProducto.js
+fullstack/frontend/src/components/crearProducto/CrearProducto.css
+fullstack/frontend/src/components/crearProducto/CrearProducto.js
+fullstack/frontend/src/components/listarProductos/ListarProductos.css
+fullstack/frontend/src/components/listarProductos/ListarProductos.js
+server.js
+MERN/Proy y Algos/list.js
