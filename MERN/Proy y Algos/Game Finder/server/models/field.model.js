@@ -11,16 +11,16 @@ const Field = mg.model(
       },
       lat: {
         type: Number,
-        required: [true, "Must have lat"]
+        required: [true, "Must have latitude"]
       },
       lng: {
         type: Number,
-        required: [true, "Must have lng"]
+        required: [true, "Must have longitude"]
       },
       category: String,
       open_field: Boolean,
-      open_entrance: Boolean,
-      juegos: { type: Array }
+      open_entrance: Boolean
+      // sports: { type: Array }
     },
     { timestamps: true }
   )

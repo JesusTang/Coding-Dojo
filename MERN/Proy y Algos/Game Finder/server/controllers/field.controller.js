@@ -40,11 +40,17 @@ module.exports.editField = async (req, res) => {
     res.status(400).json(error);
   }
 };
-// module.exports.getFieldCaptain = async (req, res) => {
-//   const field = await Field.findOne({ crew_position: "Captain" });
-//   if (!field) {
-//     res.status(404).json({ message: "Field not found" });
-//   } else {
-//     res.json(field);
-//   }
-// };
+module.exports.getFilteredFields = async (req, res) => {
+  const { sport, category, open_field, open_entrance } = req.params;
+  const fields = await Field.find({
+    sport: sport,
+    category: category,
+    open_field: open_field,
+    open_entrance: open_entrance
+  });
+  if (!fields) {
+    res.status(404).json({ message: "Field not found" });
+  } else {
+    res.json(fields);
+  }
+};
