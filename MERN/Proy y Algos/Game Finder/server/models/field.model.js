@@ -1,33 +1,26 @@
 const mg = require("../config/mongoose.config");
-
-const Field = mg.model(
-  "Field",
-  mg.Schema(
-    {
-      name: String,
-      sport: {
-        type: String,
-        required: [true, "Can't be a sportless field"]
-      },
-      lat: {
-        type: Number,
-        required: [true, "Must have latitude"]
-      },
-      lng: {
-        type: Number,
-        required: [true, "Must have longitude"]
-      },
-      category: String,
-      open_field: Boolean,
-      open_entrance: Boolean
-      // sports: { type: Array }
+const schema = new mg.Schema(
+  {
+    name: String,
+    sport: {
+      type: String,
+      required: [true, "Please select a sport"]
     },
-    { timestamps: true }
-  )
+    coordinates: {
+      type: Object,
+      lat: { type: Number, min: -90, max: 90 },
+      lng: { type: Number, min: -180, max: 180 },
+      required: [true, "Invalid coordinates"]
+    },
+    category: String,
+    open_field: Boolean,
+    open_entrance: Boolean
+  },
+  { timestamps: true }
 );
-module.exports = {
-  Field
-};
+
+const Field = mg.model("Field", schema);
+module.exports = { Field };
 // {
 // "firstName":"john",
 // "lastName":"Wick"

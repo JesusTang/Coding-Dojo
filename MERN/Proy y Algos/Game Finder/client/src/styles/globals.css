@@ -14,13 +14,92 @@
   background-color: #150f31;
 }
 .p-7 {
-  padding: 4%;
   padding-left: 7%;
   padding-right: 7%;
 }
 .box-shadow {
-  box-shadow: 5px 5px 20px;
+  box-shadow: 5px 5px 20px #000000;
 }
 .title-shadow {
   text-shadow: 5px 3px 5px #000000;
+}
+.text-shadow {
+  text-shadow: 2px 2px 5px #000000;
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bg-gray {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: #000000;
+  opacity: 0.5;
+}
+.popup-inner {
+  position: relative;
+  padding: 32px;
+  width: 100%;
+
+  max-width: 640px;
+  background-color: white;
+  opacity: 1;
+}
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.close-btn-tiny {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.delete-btn {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+.row-1 {
+  align-items: center;
+  height: 100vh;
+  display: flex;
+  width: 100%;
+}
+
+.btn-shadow {
+  box-shadow: 3px 3px 10px #000000;
+}
+.btn-hover:hover {
+  background-color: #a0b1fa;
+}
+.col-05 {
+  width: 5%;
+}
+.welcome-text {
+  font-size: 28px;
+  font-weight: 500;
+}
+.welcome-title {
+  font-size: 60px;
+}
+.scrollable {
+  overflow-x: hidden;
+  height: 70vh;
+  overflow-y: auto;
+}
+.p-clickable {
+  cursor: pointer;
+  color: blue;
+  max-width: 40px;
+}
+.wrap {
+  word-wrap: break-word;
 }

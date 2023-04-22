@@ -1,26 +1,31 @@
 import axios from "axios";
 import { useState } from "react";
+import CloseButton from "./CloseButton";
 
 function FilterForm(props) {
+  const { setMarkers, setElementToLoad } = props;
   const [errors, setErrors] = useState([]);
 
   const [sport, setSport] = useState("");
-  const [category, setCategory] = useState("");
-  const [open_field, setOpen_field] = useState(false);
-  const [open_entrance, setOpen_entrance] = useState(false);
+  const [category, setCategory] = useState("Mixed");
+  const [open_field, setOpen_field] = useState(true);
+  const [open_entrance, setOpen_entrance] = useState(true);
 
   const [selected, setSelected] = useState(false);
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     try {
-      await axios
-        .get(
-          `http://localhost:8000/api/fields/${sport}/${category}/${open_field}/${open_entrance}`
-        )
-        .then((res) => {
-          console.log(res.data);
-        });
+      if (sport !== "") {
+        await axios
+          .get(
+            `${process.env.REACT_APP_DATABASE}/fields/${sport}/${category}/${open_field}/${open_entrance}`
+          )
+          .then((res) => {
+            setMarkers(res.data);
+            setElementToLoad("listOfLocations");
+          });
+      }
     } catch (err) {
       const errorResponse = err.response.data.errors;
       const errorArr = [];
@@ -32,7 +37,8 @@ function FilterForm(props) {
   };
 
   return (
-    <div>
+    <div className="bg-white col-10 rounded-end rounded-5 position-relative">
+      <h5 className="mt-3">Filter fields by categories</h5>
       <form className="mt-1" onSubmit={onSubmitHandler}>
         {errors.map((err, index) => {
           return (
@@ -58,10 +64,10 @@ function FilterForm(props) {
               <option defaultValue={""}>Select a sport</option>
             ) : null}
             <option value="Soccer">Soccer</option>
-            <option value="Fulbito">Fulbito</option>
+            {/* <option value="Fulbito">Fulbito</option> */}
             <option value="BasketBall">Basketball</option>
             <option value="Tennis">Tennis</option>
-            <option value="Fronton">Fronton</option>
+            {/* <option value="Fronton">Fronton</option> */}
             <option value="Baseball">Baseball</option>
             <option value="any">Any</option>
           </select>
@@ -70,7 +76,6 @@ function FilterForm(props) {
           <label className="form-label">Level of competitiveness</label>
           <select
             onChange={(ev) => {
-              setSelected(true);
               setCategory(ev.target.value);
             }}
             className="form-select"
@@ -104,7 +109,7 @@ function FilterForm(props) {
           >
             <option value="true">Yes</option>
             <option value="false">No</option>
-            <option value="Competitive">Any</option>
+            <option value="any">Any</option>
           </select>
         </div>
         <button type="submit" className="btn btn-primary mt-2">
@@ -112,6 +117,7 @@ function FilterForm(props) {
         </button>
       </form>
       <hr></hr>
+      <CloseButton setElementToLoad={setElementToLoad} />
     </div>
   );
 }

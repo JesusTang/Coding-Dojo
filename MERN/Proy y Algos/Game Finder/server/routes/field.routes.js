@@ -5,6 +5,7 @@ const router = express.Router();
 
 router.get("/api/fields", FieldController.getAllFields);
 router.get("/api/fields/:id", FieldController.getOneField);
+router.get("/api/fields/id/:lat/:lng", FieldController.getFieldIdByCoords);
 router.get(
   "/api/fields/:sport/:category/:open_field/:open_entrance",
   FieldController.getFilteredFields
